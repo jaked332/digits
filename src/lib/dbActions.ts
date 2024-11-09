@@ -136,3 +136,18 @@ export async function changePassword(credentials: { email: string; password: str
     },
   });
 }
+
+/**
+ * Adds a note to a specific contact card.
+ * @param note, an object with the following properties: note, contactId, owner.
+ */
+export async function addNote(note: { note: string; contactId: number, owner: string }) {
+  await prisma.note.create({
+    data: {
+      note: note.note,
+      contactId: note.contactId,
+      owner: note.owner,
+    },
+  });
+  redirect('/list');
+}
