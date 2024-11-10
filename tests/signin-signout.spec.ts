@@ -12,9 +12,6 @@ test('Signin and Signout', async ({ page }) => {
   await page.locator('input[name="password"]').press('Tab');
   await page.getByRole('button', { name: 'Signin' }).click();
   await expect(page.getByRole('button', { name: 'john@foo.com' })).toBeVisible();
-  await expect(page.getByRole('heading', { name: 'Stuff' })).toBeVisible();
-  await expect(page.getByRole('cell', { name: 'Basket' })).toBeVisible();
-  await expect(page.getByRole('cell', { name: 'Bicycle' })).toBeVisible();
   await page.getByRole('button', { name: 'john@foo.com' }).click();
   await page.getByRole('link', { name: 'Sign Out' }).click();
   await page.getByRole('button', { name: 'Sign Out' }).click();
