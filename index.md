@@ -6,13 +6,11 @@ The "digits" web application is a utility for managing a list of contacts and ad
 
 ## Installation
 
-First [download the digits application](https://github.com/jaked332/digits/tree/main) from GitHub. Please note that the repository is private and that you should have permissions from the author to access it.
+First [download the digits application](https://github.com/jaked332/digits/tree/main) from GitHub. Note that the repository is private, and you should have permission from the author to access it.
 
-Then, [install Next.js](https://nextjs.org/docs/app/getting-started/installation).
+Next, [install Next.js](https://nextjs.org/docs/app/getting-started/installation) and [PostgreSQL](https://www.postgresql.org/download/). 
 
-Then, [install PostgreSQL](https://www.postgresql.org/download/). 
-
-Execute the following command to create a database for your application.
+Execute the following command to create a database for your application:
 
 ```
 $ createdb <dbname>
@@ -20,19 +18,19 @@ Password:
 $
 ```
 
-Now cd into the directory of your local `digits` copy, and install third party libraries with:
+Now, navigate (`cd`) into the directory of your local `digits` copy, and install third-party libraries with:
 
 ```
 $ npm install
 ```
 
-Then, use `sample.env` as a template for the `.env` file. Make sure to use the same database name in the configuration, i.e., `DATABASE_URL="postgresql://<user>:<password>@localhost:5432/<dbname>?schema=public"`. Then run the Prisma migration `npx prisma migrate dev` to set up the PostgreSQL tables.
+Then, use `sample.env` as a template for the `.env` file. Ensure that you use the same database name in the configuration, i.e., `DATABASE_URL="postgresql://<user>:<password>@localhost:5432/<dbname>?schema=public"`. Then run the Prisma migration `npx prisma migrate dev` to set up the PostgreSQL tables.
 
 ```
 $ npx prisma migrate dev
 ```
 
-Then seed the database with the `/config/settings.development.json` data using `npx prisma db seed`.
+Next, seed the database with the `/config/settings.development.json` data using `npx prisma db seed`.
 
 ```
 $ npx prisma db seed
@@ -51,7 +49,7 @@ $
 
 ## Running the System
 
-Once the libraries are installed and the database seeded, you can run the application by invoking the "dev" script in the `package.json` file:
+Once the libraries are installed and the database is seeded, you can run the application by invoking the "dev" script in the `package.json` file:
 
 ```
 $ npm run dev
@@ -71,7 +69,7 @@ $ npm run dev
 
 ### Viewing the Running App
 
-The digits application will appear at [http://localhost:3000](http://localhost:3000). You can login using the credentials in `settings.development.json`, or else register a new account.
+The `digits` application will appear at [http://localhost:3000](http://localhost:3000). You can login using the credentials in `settings.development.json`, or register a new account.
 
 ### ESLint for Static Analysis
 
@@ -83,17 +81,17 @@ $ npm run lint
 
 ## UI Walkthrough
 
-The following sections describe the major features of "digits".
+The following sections describe the major features of `digits`.
 
 ### Landing Page
 
-As soon as you navigate to the running application, you will reach the landing page which offers an overview of the digits web application:
+As soon as you navigate to the running application, you will reach the landing page which offers an overview of the `digits` web application:
 
 <img src="doc/landing.png">
 
 ### Sign-Up Page
 
-While you can use the default users' credentials, namely, `admin@foo.com` or `john@foo.com`, you may create a new user by navigating to the `/auth/signup` route:
+While you can use the default user credentials, `admin@foo.com` or `john@foo.com`, you may create a new user by navigating to the `/auth/signup` route:
 
 <img src="doc/signup.png">
 
@@ -105,15 +103,13 @@ Once the user is established, you may navigate to the sign-in page (`/auth/signi
 
 ### User Homepage
 
-### Sign-In Page
-
-Once you are signed in, you may navigate to the home page. Note that you can now see some navigation items on the NavBar allowing to access a page for creating new contacts and another for listing the contacts.
+Once you are signed in, you may navigate to the home page. Note that you can now see additional navigation items on the NavBar, allowing access to pages for creating new contacts and listing existing contacts.
 
 <img src="doc/signedin-landing.png">
 
 ### Add Contact Page
 
-You may click on "Add Contact" from the navigation bar. This page has a form that allows you to ingest a new contact into the user's list of contacts.
+You may click on "Add Contact" from the navigation bar. This page has a form that allows you to add a new contact into the user's contact list.
 
 <img src="doc/addcontact.png">
 
@@ -121,25 +117,25 @@ You may click on "Add Contact" from the navigation bar. This page has a form tha
 
 #### Viewing
 
-You may click on "List Contacts" to view all contacts for the current user:
+Click on "List Contacts" to view all contacts for the current user:
 
 <img src="doc/listcontact.png">
 
 #### Timestamped Notes
 
-An important remark about this page is the ability to add notes per contact:
+An important feature of this page is the ability to add notes per contact:
 
 <img src="doc/note.png">
 
 ### Edit Page
 
-To edit any fields pertraining to a contact, you can click the "Edit" link on the card, which will open up a form with pre-filled data (defaulting to the latest data in the database):
+To edit any fields related to a contact, you can click the "Edit" link on the card. This will open up a form with pre-filled data, defaulting to the latest data in the database:
 
 <img src="doc/edit.png">
 
 ### Admin Mode
 
-It is possible to designate admin users via the `settings.development.json` file. Admin users have access to a priviliged "Admin" page that lists all contacts of all users in the database:
+It is possible to designate admin users in the `settings.development.json` file. Admin users have access to a priviliged "Admin" page that lists all contacts of all users in the database:
 
 <img src="doc/admin.png">
 
