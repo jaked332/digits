@@ -111,7 +111,7 @@ Once you are signed in, you may navigate to the home page. Note that you can now
 
 You may click on "Add Contact" from the navigation bar. This page has a form that allows you to add a new contact into the user's contact list.
 
-<img src="doc/addcontact.png">
+<img src="doc/addcontacts.png">
 
 ### List Contacts
 
